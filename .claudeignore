@@ -1,0 +1,26 @@
+# Dependencies
+node_modules
+
+# Build output
+dist
+dist-ssr
+
+# Lockfiles (large, rarely useful as context)
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Logs
+logs
+*.log
+
+# Local env / secrets
+*.local
+.env
+.env.*
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+.vscode
+.idea
