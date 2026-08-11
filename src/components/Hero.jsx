@@ -64,10 +64,9 @@ export default function Hero() {
             <em>comfortable everywhere</em>.
           </motion.h1>
           <motion.p className="lede" variants={item}>
-            I'm HafizK, a software developer based in Malaysia with two years of
-            experience building web applications end to end — interface, API,
-            database, and deployment. I like understanding the whole system, not
-            just one slice of it.
+            I'm HafizK, a software developer based in Malaysia who builds web
+            applications end to end — interface, API, database, and deployment.
+            I like understanding the whole system, not just one slice of it.
           </motion.p>
           <motion.div className="cta-row" variants={item}>
             <motion.a

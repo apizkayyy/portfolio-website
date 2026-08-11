@@ -13,10 +13,10 @@ export default function About() {
           </Reveal>
           <Reveal delay={0.08}>
             <p>
-              I'm a software developer with two years of professional experience,
-              working across the full stack with a growing lean toward the
-              backend — the services, data, and infrastructure that decide
-              whether a product is reliable or merely finished.
+              I'm a software developer working across the full stack, with a
+              growing lean toward the backend — the services, data, and
+              infrastructure that decide whether a product is reliable or merely
+              finished.
             </p>
             <p>
               A lot of what I've been drawn to lately sits where backend
