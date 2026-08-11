@@ -5,8 +5,9 @@ const LINKS = [
   { label: 'Email', href: 'mailto:muhammadhafiz1502@gmail.com' },
   { label: 'LinkedIn', href: 'https://www.linkedin.com/in/mhafiz1502/' },
   { label: 'GitHub', href: 'https://github.com/apizkayyy' },
-  // Drop your CV at public/HafizK-Resume.pdf to make this live.
-  { label: 'Résumé (PDF)', href: '/HafizK-Resume.pdf', download: true },
+  // Résumé link removed for now. To restore: drop your CV at
+  // public/HafizK-Resume.pdf and re-add this entry:
+  // { label: 'Résumé (PDF)', href: '/HafizK-Resume.pdf', download: true },
 ]
 
 export default function Contact() {

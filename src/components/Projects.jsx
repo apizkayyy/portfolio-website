@@ -1,89 +1,81 @@
-import { Reveal, RevealGroup, RevealItem } from './motion'
+import { motion, useReducedMotion } from 'framer-motion'
+import { Reveal } from './motion'
 
-// PLACEHOLDER PROJECTS — replace these with your real work.
-// For each: a title, one or two lines on what it does and your role, the tech
-// used, and links (set `code`/`live` to a real URL, or leave as null to hide
-// that link). 2–4 projects is plenty to start.
-const PROJECTS = [
-  {
-    title: 'Project One',
-    blurb:
-      'A short, honest description of what it does and what you built — the problem it solved and your part in it. Two lines is plenty.',
-    tech: ['React', 'FastAPI', 'PostgreSQL'],
-    code: 'https://github.com/apizkayyy',
-    live: null,
-  },
-  {
-    title: 'Project Two',
-    blurb:
-      'Another project — a side build, a work project you can talk about, or something you made while learning. Focus on what it does and the tech behind it.',
-    tech: ['Python', 'Docker', 'Redis'],
-    code: 'https://github.com/apizkayyy',
-    live: null,
-  },
-  {
-    title: 'Project Three',
-    blurb:
-      'Even a small, finished thing counts. Something with an AI feature, an automation, or a clean UI shows range. Replace this with a real one.',
-    tech: ['React', 'OpenAI API', 'RAG'],
-    code: 'https://github.com/apizkayyy',
-    live: null,
-  },
+// No real side projects yet — this section shows an honest, upbeat
+// "in progress" state. When you have work to show, restore the PROJECTS
+// array + card grid (see git history) and drop this placeholder panel.
+const TEASERS = [
+  'A build worth showing',
+  'Something with an AI feature',
+  'A clean, fast interface',
+  'An automation that saves hours',
 ]
 
 export default function Projects() {
+  const reduce = useReducedMotion()
+
   return (
     <section id="work">
       <div className="wrap">
         <Reveal className="eyebrow">Selected work</Reveal>
         <Reveal as="h2" delay={0.05}>
-          A few things
+          Something worth
           <br />
-          I've built.
+          showing — soon.
         </Reveal>
-        <RevealGroup className="projects" amount={0.15}>
-          {PROJECTS.map((p, i) => (
-            <RevealItem className="project" key={p.title}>
-              <div className="project-top">
-                <span className="project-idx">
-                  {String(i + 1).padStart(2, '0')}
-                </span>
-                <div className="project-links">
-                  {p.code && (
-                    <a
-                      href={p.code}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Code ↗
-                    </a>
-                  )}
-                  {p.live && (
-                    <a
-                      href={p.live}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Live ↗
-                    </a>
-                  )}
-                </div>
-              </div>
-              <h3>{p.title}</h3>
-              <p>{p.blurb}</p>
-              <div className="project-tech">
-                {p.tech.map((t) => (
-                  <span className="tech-tag" key={t}>
-                    {t}
+
+        <Reveal delay={0.1}>
+          <div className="soon-card">
+            <div className="soon-status">
+              <span className="soon-dot" aria-hidden="true" />
+              <span>STATUS: building in progress</span>
+            </div>
+
+            <p className="soon-line">
+              This space is reserved for real, shipped work
+              <span className="soon-caret" aria-hidden="true">
+                _
+              </span>
+            </p>
+
+            <p className="soon-copy">
+              I'd rather show you finished things I'm proud of than filler.
+              A few side projects are in the works — they'll land right here.
+              In the meantime, take a look at what I build and how I work.
+            </p>
+
+            <ul className="soon-teasers" aria-label="Projects in the works">
+              {TEASERS.map((t, i) => (
+                <motion.li
+                  key={t}
+                  className="soon-teaser"
+                  initial={reduce ? false : { opacity: 0, y: 8 }}
+                  whileInView={reduce ? {} : { opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.6 }}
+                  transition={{ delay: 0.15 + i * 0.08 }}
+                >
+                  <span className="soon-teaser-mark" aria-hidden="true">
+                    →
                   </span>
-                ))}
-              </div>
-            </RevealItem>
-          ))}
-        </RevealGroup>
-        <Reveal as="p" className="section-note" delay={0.05}>
-          {/* Remove this note once you've added real projects. */}
-          ⤷ Placeholder projects — swap in your real work in src/components/Projects.jsx
+                  {t}
+                </motion.li>
+              ))}
+            </ul>
+
+            <div className="soon-actions">
+              <a
+                className="btn ghost"
+                href="https://github.com/apizkayyy"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Follow along on GitHub ↗
+              </a>
+              <a className="btn" href="#contact">
+                Want early access? Say hi
+              </a>
+            </div>
+          </div>
         </Reveal>
       </div>
     </section>
