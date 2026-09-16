@@ -1,21 +1,13 @@
 import { motion, useReducedMotion } from 'framer-motion'
 import { Reveal, EASE } from './motion'
-
-const LINKS = [
-  { label: 'Email', href: 'mailto:muhammadhafiz1502@gmail.com' },
-  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/mhafiz1502/' },
-  { label: 'GitHub', href: 'https://github.com/apizkayyy' },
-  // Résumé link removed for now. To restore: drop your CV at
-  // public/HafizK-Resume.pdf and re-add this entry:
-  // { label: 'Résumé (PDF)', href: '/HafizK-Resume.pdf', download: true },
-]
+import { SOCIAL_LINKS } from './social-links'
 
 export default function Contact() {
   const reduce = useReducedMotion()
   return (
     <section className="contact" id="contact">
       <div className="wrap">
-        <Reveal className="eyebrow">Get in touch</Reveal>
+        <Reveal className="eyebrow">06 — Get in touch</Reveal>
         <Reveal as="h2" delay={0.05}>
           Open to opportunities.
         </Reveal>
@@ -25,7 +17,7 @@ export default function Contact() {
           my inbox is open — I'll get back to you soon.
         </Reveal>
         <div className="links">
-          {LINKS.map((l, i) => (
+          {SOCIAL_LINKS.map((l, i) => (
             <motion.a
               key={l.label}
               href={l.href}

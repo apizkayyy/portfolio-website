@@ -1,13 +1,26 @@
 import { useEffect, useState } from 'react'
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
+import { SOCIAL_LINKS } from './social-links'
 
 const LINKS = [
   { href: '#work', label: 'Work' },
   { href: '#build', label: 'What I build' },
   { href: '#stack', label: 'Skills' },
   { href: '#about', label: 'About' },
+  { href: '#experience', label: 'Experience' },
   { href: '#contact', label: 'Contact' },
 ]
+
+function Status() {
+  return (
+    <div className="avail">
+      <span>
+        <span className="dot" /> Open to new opportunities
+      </span>
+      <span className="loc">Malaysia · MYT (UTC+8)</span>
+    </div>
+  )
+}
 
 export default function Nav() {
   const [open, setOpen] = useState(false)
@@ -34,6 +47,10 @@ export default function Nav() {
     return () => observer.disconnect()
   }, [])
 
+  const activeIndex = LINKS.findIndex((l) => l.href.slice(1) === active)
+  const railPct =
+    activeIndex <= 0 ? 0 : (activeIndex / (LINKS.length - 1)) * 100
+
   return (
     <nav className="nav">
       <div className="nav-in">
@@ -52,6 +69,7 @@ export default function Nav() {
             </li>
           ))}
         </ul>
+        <Status />
         <button
           className="nav-toggle"
           aria-label={open ? 'Close menu' : 'Open menu'}
@@ -66,6 +84,42 @@ export default function Nav() {
             )}
           </svg>
         </button>
+      </div>
+
+      <div className="nav-links-wrap">
+        <div className="nav-rail" aria-hidden="true" />
+        <div
+          className="nav-rail-fill"
+          aria-hidden="true"
+          style={{ height: `${railPct}%` }}
+        />
+        <ul>
+          {LINKS.map((l, i) => (
+            <li key={l.href}>
+              <a
+                href={l.href}
+                className={active === l.href.slice(1) ? 'active' : undefined}
+              >
+                <span className="n">{String(i + 1).padStart(2, '0')}</span>
+                {l.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div className="nav-social">
+        {SOCIAL_LINKS.map((l) => (
+          <a
+            key={l.label}
+            href={l.href}
+            {...(l.href.startsWith('http')
+              ? { target: '_blank', rel: 'noopener noreferrer' }
+              : {})}
+          >
+            {l.label}
+          </a>
+        ))}
       </div>
 
       <AnimatePresence>
@@ -86,6 +140,7 @@ export default function Nav() {
                 </li>
               ))}
             </ul>
+            <Status />
           </motion.div>
         )}
       </AnimatePresence>

@@ -4,7 +4,7 @@ export default function About() {
   return (
     <section id="about">
       <div className="wrap">
-        <Reveal className="eyebrow">About</Reveal>
+        <Reveal className="eyebrow">04 — About</Reveal>
         <div className="about-grid">
           <Reveal as="h2">
             Based in Malaysia,

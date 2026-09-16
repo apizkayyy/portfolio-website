@@ -30,7 +30,7 @@ export default function Hero() {
         show: { opacity: 1, y: 0, transition: { duration: 0.45, ease: EASE } },
       }
 
-  // Gentle infinite pulse for the "live" pips — glow cyan on the dark theme.
+  // Gentle infinite pulse for the "live" pips — a subtle cyan glow.
   const pip = (delay) =>
     reduce
       ? {}
@@ -39,7 +39,7 @@ export default function Hero() {
             backgroundColor: ['#5f6d79', '#22d3ee', '#5f6d79'],
             boxShadow: [
               '0 0 0px rgba(34,211,238,0)',
-              '0 0 10px rgba(34,211,238,0.9)',
+              '0 0 6px rgba(34,211,238,0.7)',
               '0 0 0px rgba(34,211,238,0)',
             ],
           },
@@ -53,11 +53,8 @@ export default function Hero() {
 
   return (
     <header className="hero">
-      <div className="wrap hero-grid">
+      <div className="wrap">
         <motion.div variants={container} initial="hidden" animate="show">
-          <motion.div className="avail" variants={item}>
-            <span className="dot" /> Open to new opportunities
-          </motion.div>
           <motion.h1 variants={item}>
             Full stack developer,
             <br />

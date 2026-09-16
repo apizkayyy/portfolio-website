@@ -66,7 +66,7 @@ export default function Stack() {
   return (
     <section id="stack">
       <div className="wrap">
-        <Reveal className="eyebrow">Tools</Reveal>
+        <Reveal className="eyebrow">03 — Skills</Reveal>
         <Reveal as="h2" delay={0.05}>
           What I build with.
         </Reveal>

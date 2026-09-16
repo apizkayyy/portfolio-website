@@ -27,7 +27,7 @@ export default function Build() {
   return (
     <section id="build">
       <div className="wrap">
-        <Reveal className="eyebrow">What I build</Reveal>
+        <Reveal className="eyebrow">02 — What I build</Reveal>
         <Reveal as="h2" delay={0.05}>
           The kinds of things
           <br />I like to work on.

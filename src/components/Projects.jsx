@@ -17,7 +17,7 @@ export default function Projects() {
   return (
     <section id="work">
       <div className="wrap">
-        <Reveal className="eyebrow">Selected work</Reveal>
+        <Reveal className="eyebrow">01 — Selected work</Reveal>
         <Reveal as="h2" delay={0.05}>
           Something worth
           <br />
